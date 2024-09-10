@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { ADD_BOOK, ALL_AUTHORS, ALL_BOOKS, ALL_BOOKS_AND_GENRES } from '../queries'
 import { useNavigate } from 'react-router-dom'
 import { useField } from '../hooks/useField'
+import { updateCache } from '../App'
 
 const NewBook = ({ token, user }) => {
   const title = useField('text')
@@ -11,7 +12,14 @@ const NewBook = ({ token, user }) => {
   const [genre, setGenre] = useState('')
   const [genres, setGenres] = useState([])
 
-  const [addBook] = useMutation(ADD_BOOK)
+  const [addBook] = useMutation(ADD_BOOK,{
+    onError: (error) => {
+      console.error(error)
+    },
+    // update:(cache, response)=>{
+    //  updateCache(cache,{query:ALL_BOOKS},response.data.addBook)
+    // },
+  })
 
   const navigate = useNavigate()
   useEffect(() => {

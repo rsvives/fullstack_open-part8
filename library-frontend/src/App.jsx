@@ -8,6 +8,24 @@ import { useApolloClient, useQuery, useSubscription } from '@apollo/client'
 import { Recommendations } from './components/Recommendations'
 import { ALL_BOOKS, BOOK_ADDED, ME } from './queries'
 
+
+// export const updateCache = (cache, query, addedBook) => {
+//   // helper that is used to eliminate saving same person twice
+//   // const uniqByTitle = (a) => {
+//   //   let seen = new Set()
+//   //   return a.filter((item) => {
+//   //     let k = item.title
+//   //     return seen.has(k) ? false : seen.add(k)
+//   //   })
+//   // }
+
+//   // cache.updateQuery(query, ({ allBooks }) => {
+//   //   return {
+//   //     allBooks: allBooks.concat(addedBook),
+//   //   }
+//   // })
+// }
+
 const App = () => {
   const navStyle = {
     nav: {
