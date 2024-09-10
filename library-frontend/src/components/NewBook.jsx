@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { ADD_BOOK, ALL_AUTHORS, ALL_BOOKS, ALL_BOOKS_AND_GENRES } from '../queries'
 import { useNavigate } from 'react-router-dom'
 import { useField } from '../hooks/useField'
-import { updateCache } from '../App'
+// import { updateCache } from '../App'
 
 const NewBook = ({ token, user }) => {
   const title = useField('text')
